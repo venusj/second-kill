@@ -36,4 +36,42 @@ public class ApiResponse<T> implements Serializable {
      */
     @ApiModelProperty(value = "通用返回数据", required = true)
     private T data;
+
+    public static ApiResponse success(Object data) {
+        ApiResponse result = new ApiResponse<>();
+        result.setCode(0);
+        result.setMessage("成功");
+        result.setData(data);
+        return result;
+    }
+
+    public static ApiResponse success(CodeMsg codeMsg, Object data) {
+        ApiResponse result = new ApiResponse<>();
+        result.setCode(codeMsg.getCode());
+        result.setMessage(codeMsg.getMessage());
+        result.setData(data);
+        return result;
+    }
+
+    public static ApiResponse error(CodeMsg codeMsg) {
+        ApiResponse result = new ApiResponse<>();
+        result.setCode(codeMsg.getCode());
+        result.setMessage(codeMsg.getMessage());
+        return result;
+    }
+
+    public static ApiResponse error() {
+        ApiResponse result = new ApiResponse<>();
+        result.setCode(-1);
+        result.setMessage("错误");
+        return result;
+    }
+
+    public static ApiResponse error(Object data) {
+        ApiResponse result = new ApiResponse<>();
+        result.setCode(-1);
+        result.setMessage("错误");
+        result.setData(data);
+        return result;
+    }
 }
