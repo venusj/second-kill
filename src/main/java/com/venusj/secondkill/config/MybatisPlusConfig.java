@@ -56,15 +56,15 @@ public class MybatisPlusConfig {
         return new MetaObjectHandler() {
             @Override
             public void insertFill(MetaObject metaObject) {
-                this.setFieldValByName("deleted", 0 , metaObject);
-                // TODO 创建者  修改者  可扩展jwt中获取进行设置
-                this.setFieldValByName("whenCreated", LocalDateTime.now(), metaObject);
-                this.setFieldValByName("whenModified", LocalDateTime.now() , metaObject);
+//                this.setFieldValByName("deleted", 0 , metaObject);
+//                // TODO 创建者  修改者  可扩展jwt中获取进行设置
+//                this.setFieldValByName("whenCreated", LocalDateTime.now(), metaObject);
+//                this.setFieldValByName("whenModified", LocalDateTime.now() , metaObject);
             }
 
             @Override
             public void updateFill(MetaObject metaObject) {
-                this.setFieldValByName("whenModified", LocalDateTime.now() , metaObject);
+//                this.setFieldValByName("whenModified", LocalDateTime.now() , metaObject);
                 // 同上可扩展
             }
         };

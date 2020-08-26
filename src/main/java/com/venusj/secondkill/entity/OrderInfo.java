@@ -1,83 +1,64 @@
 package com.venusj.secondkill.entity;
 
+import java.math.BigDecimal;
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
-public class OrderInfo {
-	private Long id;
-	private Long userId;
-	private Long goodsId;
-	private Long  deliveryAddrId;
-	private String goodsName;
-	private Integer goodsCount;
-	private Double goodsPrice;
-	private Integer orderChannel;
-	private Integer status;
-	private Date createDate;
-	private Date payDate;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public Long getUserId() {
-		return userId;
-	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-	public Long getGoodsId() {
-		return goodsId;
-	}
-	public void setGoodsId(Long goodsId) {
-		this.goodsId = goodsId;
-	}
-	public Long getDeliveryAddrId() {
-		return deliveryAddrId;
-	}
-	public void setDeliveryAddrId(Long deliveryAddrId) {
-		this.deliveryAddrId = deliveryAddrId;
-	}
-	public String getGoodsName() {
-		return goodsName;
-	}
-	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
-	}
-	public Integer getGoodsCount() {
-		return goodsCount;
-	}
-	public void setGoodsCount(Integer goodsCount) {
-		this.goodsCount = goodsCount;
-	}
-	public Double getGoodsPrice() {
-		return goodsPrice;
-	}
-	public void setGoodsPrice(Double goodsPrice) {
-		this.goodsPrice = goodsPrice;
-	}
-	public Integer getOrderChannel() {
-		return orderChannel;
-	}
-	public void setOrderChannel(Integer orderChannel) {
-		this.orderChannel = orderChannel;
-	}
-	public Integer getStatus() {
-		return status;
-	}
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	public Date getPayDate() {
-		return payDate;
-	}
-	public void setPayDate(Date payDate) {
-		this.payDate = payDate;
-	}
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author venusj
+ * @since 2020-08-26
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@ApiModel(value="OrderInfo对象", description="")
+public class OrderInfo implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    @ApiModelProperty(value = "用户ID")
+    private Long userId;
+
+    @ApiModelProperty(value = "商品ID")
+    private Long goodsId;
+
+    @ApiModelProperty(value = "收获地址Id")
+    private Long deliveryAddrId;
+
+    @ApiModelProperty(value = "冗余过来的商品名称")
+    private String goodsName;
+
+    @ApiModelProperty(value = "商品数量")
+    private String goodsCount;
+
+    @ApiModelProperty(value = "商品单价")
+    private BigDecimal goodsPrice;
+
+    @ApiModelProperty(value = "1 pc 2 安卓 3 ios")
+    private Integer orderChannel;
+
+    @ApiModelProperty(value = "订单状态 0 新建未支付  1 已支付  2 已发货 3 已收货 4 已退款 5 已完成")
+    private Integer status;
+
+    @ApiModelProperty(value = "创建时间")
+    private Date createDate;
+
+    @ApiModelProperty(value = "支付时间")
+    private Date payDate;
+
+
 }

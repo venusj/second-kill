@@ -1,32 +1,41 @@
 package com.venusj.secondkill.entity;
 
-public class MiaoshaOrder {
-	private Long id;
-	private Long userId;
-	private Long  orderId;
-	private Long goodsId;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public Long getUserId() {
-		return userId;
-	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-	public Long getOrderId() {
-		return orderId;
-	}
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-	public Long getGoodsId() {
-		return goodsId;
-	}
-	public void setGoodsId(Long goodsId) {
-		this.goodsId = goodsId;
-	}
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ * 秒杀订单表
+ * </p>
+ *
+ * @author venusj
+ * @since 2020-08-26
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@ApiModel(value="MiaoshaOrder对象", description="秒杀订单表")
+public class MiaoshaOrder implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    @ApiModelProperty(value = "用户ID")
+    private Long userId;
+
+    @ApiModelProperty(value = "商品ID")
+    private Long goodsId;
+
+    @ApiModelProperty(value = "订单ID")
+    private Long orderId;
+
+
 }

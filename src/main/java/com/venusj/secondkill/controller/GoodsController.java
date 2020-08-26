@@ -1,8 +1,11 @@
 package com.venusj.secondkill.controller;
 
 import com.venusj.secondkill.entity.MiaoshaUser;
+import com.venusj.secondkill.service.GoodsService;
+import com.venusj.secondkill.service.MiaoshaGoodsService;
 import com.venusj.secondkill.service.MiaoshaUserService;
 import com.venusj.secondkill.service.impl.MiaoshaUserServiceImpl;
+import com.venusj.secondkill.vo.GoodsVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @author zhangjh
@@ -26,11 +30,15 @@ import javax.servlet.http.HttpServletResponse;
 public class GoodsController {
 
     @Autowired
-    private MiaoshaUserService miaoshaUserService;
+    private GoodsService goodsService;
+
 
     @RequestMapping("/to_list")
     public String list(Model model, MiaoshaUser miaoshaUser) {
         model.addAttribute("user", miaoshaUser);
+        //查询商品列表
+        List<GoodsVo> goodsList = goodsService.listGoodsVo();
+        model.addAttribute("goodsList", goodsList);
         return "goods_list";
     }
 
