@@ -1,11 +1,13 @@
 package com.venusj.secondkill.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.venusj.secondkill.entity.Goods;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -16,8 +18,12 @@ import java.util.Date;
 @Data
 @ToString
 public class GoodsVo  extends Goods {
-    private Double miaoshaPrice;
+    private BigDecimal miaoshaPrice;
     private Integer stockCount;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private Date startDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private Date endDate;
 }

@@ -3,6 +3,7 @@ package com.venusj.secondkill.mapper;
 import com.venusj.secondkill.entity.Goods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.venusj.secondkill.vo.GoodsVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ import java.util.List;
 public interface GoodsMapper extends BaseMapper<Goods> {
 
     List<GoodsVo> listGoodsVo();
+
+    GoodsVo getGoodsVoById(@Param("id") Long goodsId);
 }

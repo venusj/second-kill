@@ -2,6 +2,9 @@ package com.venusj.secondkill.service;
 
 import com.venusj.secondkill.entity.MiaoshaGoods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.venusj.secondkill.entity.MiaoshaUser;
+import com.venusj.secondkill.entity.OrderInfo;
+import com.venusj.secondkill.vo.GoodsVo;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface MiaoshaGoodsService extends IService<MiaoshaGoods> {
 
+    OrderInfo miaosha(MiaoshaUser user, GoodsVo goods);
 }

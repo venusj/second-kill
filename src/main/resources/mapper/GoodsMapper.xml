@@ -6,4 +6,9 @@
     <select id="listGoodsVo" resultType="com.venusj.secondkill.vo.GoodsVo">
         SELECT g.*, mg.miaosha_price miaoshaPrice, mg.stock_count stockCount ,mg.start_date, mg.end_date FROM `miaosha_goods` mg left join goods g on mg.goods_id=g.id
     </select>
+    <select id="getGoodsVoById" resultType="com.venusj.secondkill.vo.GoodsVo">
+       SELECT g.*, mg.miaosha_price miaoshaPrice, mg.stock_count stockCount ,mg.start_date, mg.end_date
+        FROM `miaosha_goods` mg left join goods g on mg.goods_id=g.id
+        where g.id = #{id}
+    </select>
 </mapper>

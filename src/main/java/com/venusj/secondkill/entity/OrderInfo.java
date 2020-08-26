@@ -43,7 +43,7 @@ public class OrderInfo implements Serializable {
     private String goodsName;
 
     @ApiModelProperty(value = "商品数量")
-    private String goodsCount;
+    private Integer goodsCount;
 
     @ApiModelProperty(value = "商品单价")
     private BigDecimal goodsPrice;

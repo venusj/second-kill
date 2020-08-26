@@ -2,6 +2,8 @@ package com.venusj.secondkill.service;
 
 import com.venusj.secondkill.entity.Goods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.venusj.secondkill.entity.MiaoshaUser;
+import com.venusj.secondkill.entity.OrderInfo;
 import com.venusj.secondkill.vo.GoodsVo;
 
 import java.util.List;
@@ -17,4 +19,8 @@ import java.util.List;
 public interface GoodsService extends IService<Goods> {
 
     List<GoodsVo> listGoodsVo();
+
+    GoodsVo getGoodsVoById(Long goodsId);
+
+    void reduceStock(GoodsVo goods);
 }
