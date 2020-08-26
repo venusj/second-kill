@@ -5,6 +5,8 @@ import com.venusj.secondkill.entity.MiaoshaUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.venusj.secondkill.vo.LoginVo;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * <p>
  *  服务类
@@ -15,5 +17,7 @@ import com.venusj.secondkill.vo.LoginVo;
  */
 public interface MiaoshaUserService extends IService<MiaoshaUser> {
 
-    ApiResponse login(LoginVo loginVo);
+    ApiResponse login(HttpServletResponse response, LoginVo loginVo);
+
+    MiaoshaUser getUserByToken(HttpServletResponse response, String token);
 }
