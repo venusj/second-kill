@@ -38,7 +38,11 @@ public class UserHandlerMethodArgumentResolver implements HandlerMethodArgumentR
         HttpServletRequest request = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
         HttpServletResponse response = nativeWebRequest.getNativeResponse(HttpServletResponse.class);
         String tokenParam = request.getParameter(MiaoshaUserServiceImpl.TOKEN_NAME);
-        String cookieValue = getCookieValue(request, MiaoshaUserServiceImpl.TOKEN_NAME);
+        String cookieValue = null;
+        if(StringUtils.isEmpty(tokenParam))
+        {
+            cookieValue = getCookieValue(request, MiaoshaUserServiceImpl.TOKEN_NAME);
+        }
         if(StringUtils.isEmpty(tokenParam) && StringUtils.isEmpty(cookieValue))
         {
             return "login";

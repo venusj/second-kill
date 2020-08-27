@@ -42,18 +42,6 @@ public class MiaoshaUserServiceImpl extends ServiceImpl<MiaoshaUserMapper, Miaos
     public ApiResponse login(HttpServletResponse response, LoginVo loginVo) {
         String mobile = loginVo.getMobile();
         String password = loginVo.getPassword();
-        /*if(StringUtils.isEmpty(mobile))
-        {
-            return ApiResponse.error(CodeMsg.MOBILE_EMPTY);
-        }
-        if(StringUtils.isEmpty(password))
-        {
-            return ApiResponse.error(CodeMsg.PASSWORD_EMPTY);
-        }
-        if(!ValidatorUtil.isMobile(mobile))
-        {
-            return ApiResponse.error(CodeMsg.MOBILE_ERROR);
-        }*/
         MiaoshaUser miaoshaUser = this.getById(mobile);
         String saltDB = miaoshaUser.getSalt();
         // 验证密码
